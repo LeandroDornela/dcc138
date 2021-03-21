@@ -16,12 +16,16 @@
 
         let ctx = canvas.getContext("2d");
 
-        let x = 100;
-        let y = 100;
-        let vx = 0;
-        let vy = 0;
-        let ax = 0;
-        let ay = 0;
+        let p = {
+            x : 100,
+            y : 100,
+            vx : 0,
+            vy : 0,
+            ax : 0,
+            ay : 0
+        }
+
+        
 
         let ex = 100;
         let ey = 100;
@@ -41,13 +45,13 @@
             if(t0 == undefined) t0 = t; // t0 = t0 ?? t
             dt = (t - t0)/1000;
 
-            vx = vx + ax*dt;
-            vy = vy + ay*dt;
-            x = x + vx * dt;
-            y = y + vy * dt;
+            p.vx =  p.vx +  p.ax*dt;
+            p.vy =  p.vy +  p.ay*dt;
+            p.x =  p.x +  p.vx * dt;
+            p.y =  p.y +  p.vy * dt;
 
-            eay = 0.5 * (y - ey) - 0.2*evy;
-            eax = 0.5 * (x - ex) - 0.2*evx;
+            eay = 0.5 * ( p.y - ey) - 0.2*evy;
+            eax = 0.5 * ( p.x - ex) - 0.2*evx;
 
             evx = evx + eax*dt;
             evy = evy + eay*dt;
@@ -58,9 +62,9 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = "white";
-            ctx.fillRect(x, y, 32, 32);
+            ctx.fillRect( p.x,  p.y, 32, 32);
 
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "red";
             ctx.fillRect(ex, ey, 32, 32);
 
             requestAnimationFrame(desenha);
@@ -77,16 +81,16 @@
             switch (e.key)
             {
                 case "ArrowUp":
-                    ay = -k;
+                p.ay = -k;
                     break;
                 case "ArrowDown":
-                    ay = k;
+                p.ay = k;
                     break;
                 case "ArrowLeft":
-                    ax = -k;
+                p.ax = -k;
                     break;
                 case "ArrowRight":
-                    ax = k;
+                p.ax = k;
                     break;
                 default:
                     break;
@@ -100,16 +104,16 @@
             switch (e.key)
             {
                 case "ArrowUp":
-                    ay = 0;
+                p.ay = 0;
                     break;
                 case "ArrowDown":
-                    ay = 0;
+                p.ay = 0;
                     break;
                 case "ArrowLeft":
-                    ax = 0;
+                p.ax = 0;
                     break;
                 case "ArrowRight":
-                    ax = 0;
+                p.ax = 0;
                     break;
                 default:
                     break;
