@@ -16,8 +16,20 @@
 
         let ctx = canvas.getContext("2d");
 
-        ctx.fillStyle = "green";
-        ctx.fillRect(0, 0, 32, 32);
+        let x = 100;
+        let y = 100;
+
+        desenha();
+
+        function desenha()
+        {
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "white";
+            ctx.fillRect(x, y, 32, 32);
+        }
+        
     </script>
 </body>
 </html>
