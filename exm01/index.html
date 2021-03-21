@@ -22,8 +22,13 @@
         let vx = 0;
         let vy = 0;
 
+        let ax = 0;
+        let ay = 0;
+
         let t0;
         let dt;
+
+        let k = 30;
 
         requestAnimationFrame(desenha);
 
@@ -32,6 +37,8 @@
             if(t0 == undefined) t0 = t; // t0 = t0 ?? t
             dt = (t - t0)/1000;
 
+            vx = vx + ax*dt;
+            vy = vy + ay*dt;
             x = x + vx * dt;
             y = y + vy * dt;
 
@@ -55,16 +62,16 @@
             switch (e.key)
             {
                 case "ArrowUp":
-                    vy = -20;
+                    ay = -k;
                     break;
                 case "ArrowDown":
-                    vy = 20;
+                    ay = k;
                     break;
                 case "ArrowLeft":
-                    vx = -20;
+                    ax = -k;
                     break;
                 case "ArrowRight":
-                    vx = 20;
+                    ax = k;
                     break;
                 default:
                     break;
@@ -78,16 +85,16 @@
             switch (e.key)
             {
                 case "ArrowUp":
-                    vy = 0;
+                    ay = 0;
                     break;
                 case "ArrowDown":
-                    vy = 0;
+                    ay = 0;
                     break;
                 case "ArrowLeft":
-                    vx = 0;
+                    ax = 0;
                     break;
                 case "ArrowRight":
-                    vx = 0;
+                    ax = 0;
                     break;
                 default:
                     break;
