@@ -13,6 +13,11 @@
         let canvas = document.querySelector("canvas");
         canvas.width = 640;
         canvas.height = 380;
+
+        let ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(0, 0, 32, 32);
     </script>
 </body>
 </html>
