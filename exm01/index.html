@@ -29,6 +29,8 @@
             if(t0 == undefined) t0 = t; // t0 = t0 ?? t
             dt = (t - t0)/1000;
 
+            x = x + 10 * dt;
+
             ctx.fillStyle = "black";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
