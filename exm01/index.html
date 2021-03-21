@@ -19,15 +19,24 @@
         let x = 100;
         let y = 100;
 
-        desenha();
+        let t0;
+        let dt;
 
-        function desenha()
+        requestAnimationFrame(desenha);
+
+        function desenha(t)
         {
+            if(t0 == undefined) t0 = t; // t0 = t0 ?? t
+            dt = (t - t0)/1000;
+
             ctx.fillStyle = "black";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = "white";
             ctx.fillRect(x, y, 32, 32);
+
+            requestAnimationFrame(desenha);
+            t0 = t;
         }
         
     </script>
