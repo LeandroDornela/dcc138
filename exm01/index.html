@@ -30,6 +30,7 @@
             dt = (t - t0)/1000;
 
             x = x + 10 * dt;
+            y = 100 + 1500 * Math.cos(t/200) * dt;
 
             ctx.fillStyle = "black";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
